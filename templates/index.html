@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crime Pattern Alert System - Stay Informed</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">Crime Pattern Alert System</h1>
+                <p class="tagline">Stay informed with timely crime alerts and intelligent entity extraction.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Crime Alert Subscription -->
+        <section class="alert-section section-spacing">
+            <div class="container">
+                <h2 class="section-title">Receive Crime Pattern Email Alerts</h2>
+                <form method="POST" action="/alert" class="alert-form">
+                    <input type="text" name="name" placeholder="Enter your name" required />
+
+                    <input type="text" name="location" placeholder="Enter your city/area" required />
+
+                    <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email Address" />
+
+                    <select name="crime_type" required aria-label="Select Crime Type">
+                        <option value="" disabled selected>Select Crime Type for Alerts</option>
+                        <option value="Burglary">Burglary</option>
+                        <option value="Homicide">Homicide</option>
+                        <option value="Kidnapping">Kidnapping</option>
+                        <option value="Identity Theft">Identity Theft</option>
+                        <option value="Vandalism">Vandalism</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- NER Extraction -->
+        <section class="ner-section section-spacing bg-light">
+            <div class="container">
+                <h2 class="section-title">Crime Description Named Entity Recognition (NER)</h2>
+                <form method="POST" action="/ner" class="ner-form">
+                    <textarea name="description" placeholder="Paste your crime report description here for entity extraction..." rows="8" required aria-label="Crime Report Description"></textarea>
+                    <button type="submit" class="btn btn-secondary">Extract Entities</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Crime Alert System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

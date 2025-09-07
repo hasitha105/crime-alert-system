@@ -1,0 +1,13 @@
+CREATE TABLE crimes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT,
+  link TEXT,
+  description TEXT,
+  crime_type TEXT,
+  location TEXT,
+  time TEXT,
+  severity TEXT,
+  summary TEXT,
+  source TEXT,
+  pubDate TEXT
+);

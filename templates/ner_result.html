@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NER Result - Crime Pattern Alert System</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="site-title">Crime Pattern Alert System</h1>
+            <p class="tagline">Extracted Named Entities from Crime Description</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="ner-result-section">
+            <div class="container">
+                <h2 class="section-title">Extracted Entities</h2>
+                {% if entities %}
+                    <ul class="entity-list">
+                    {% for label, values in entities.items() %}
+                        <li>
+                            <span class="entity-label">{{ label }}</span>: 
+                            <span class="entity-values">{{ values | join(', ') }}</span>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="no-entities-message">No entities were extracted. Please go back and try a different description.</p>
+                {% endif %}
+                <div class="button-container">
+                    <a href="/" class="btn btn-primary">Back to Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Crime Pattern Alert System. All rights reserved.</p>
+            <nav class="footer-nav">
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
